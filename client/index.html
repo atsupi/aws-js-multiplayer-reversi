@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="//cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
+    <script src="game.js" type="module"></script>
+    <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
+    <script src="script.js" type="module"></script>
+</head>
+<body>
+    <div id="startScreen">
+        <button id="createRoomButton">Create Room</button>
+        <br>
+        <div id="orMessage">or</div>
+        <br>
+        <input type="text" name="room" id="roomIdInput" />
+        <button id="joinRoomButton">Join Room</button>
+      </div>
+      <div id="gameScreen">
+          <div id="gameStatus"><span id="spanStatus"></span></div>
+          <p>RoomId:<span id="spanRoomId"></span></p>
+          <div id="game-area"></div>
+      </div>
+  </body>
+</html>
