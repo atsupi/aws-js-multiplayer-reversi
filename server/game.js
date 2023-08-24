@@ -73,7 +73,7 @@ const startGame = () => {
 
 const gamePutMass = (pos, playerNo) => {
     console.log("gamePutMass", pos, playerNo);
-    if (!pos || !playerNo) return;
+    if (!pos || !playerNo || !gameState) return;
 
     if (gameState.currentPlayer == playerNo) {
         const newParam = {

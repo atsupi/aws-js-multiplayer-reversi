@@ -1,12 +1,23 @@
+import express from "express";
+import * as http from "http";
+import path from "path";
+import { fileURLToPath } from "url";
 import { gamePutMassCompleted, gameSkipCurrentPlayer, startGame } from "./game.js";
 import { gamePutMass } from "./game.js";
 import { Server } from "socket.io";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const app = express();
+const server = http.createServer(app);
+
 const io = new Server(3001, {
     cors: {
-        origin: ["http://127.0.0.1:5500", "http://localhost:5500"],
+        origin: ["http://127.0.0.1:3000", "http://localhost:3000"],
     },
 });
+
+app.use(express.static(path.join(__dirname, "../client")));
 
 let clientRooms = {};
 let state = {};
@@ -101,3 +112,5 @@ export {
     updateState,
     gameOver,
 }
+
+server.listen(3000, () => console.log("listening on port 3000"));
