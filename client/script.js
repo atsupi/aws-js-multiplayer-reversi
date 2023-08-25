@@ -1,6 +1,6 @@
 import { gameSkipOnce, setMyPlayerNo, updateGameState } from "./game.js";
 
-const SERVER = "http://localhost:3001";
+const SERVER = "https://e25idfspzm.ap-northeast-1.awsapprunner.com:3001";
 const socket = io(SERVER);
 
 const joinRoomButton = document.getElementById("joinRoomButton");
