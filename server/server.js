@@ -14,9 +14,11 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const server = http.createServer(app);
 
+const WEB_ORIGIN = process.env.WEB_ORIGIN || "http://localhost:3000";
+
 const io = new Server(3001, {
     cors: {
-        origin: ["http://127.0.0.1:3000", "http://localhost:3000"],
+        origin: ["http://127.0.0.1:3000", "WEB_ORIGIN"],
     },
 });
 
