@@ -3,7 +3,6 @@
  Filename: game.js
  Copyright (c) 2023 atsupi
 *********************************************************/
-"use strict"
 
 import { putMass, putMassCompleted, skipCurrentPlayer } from "./script.js";
 
