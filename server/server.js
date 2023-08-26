@@ -28,7 +28,7 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, "../client")));
 
 app.get("/script.js", (req, res) => {
-    res.contentType('javascript');
+    res.contentType('text/javascript');
     const params = {
         server_url: SERVER_URL
     }
