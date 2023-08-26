@@ -250,11 +250,11 @@ class MyScene2 extends Phaser.Scene {
             let tileMap = this.tilemap.getTileAt(originX + deltaX * i, originY + deltaY * i);
             if (tileMap) {
                 let tile = tileMap.index;
-                if (tile == turnOp) {
+                if (tile === turnOp) {
                     gain++;
-                } else if (tile == turn) {
+                } else if (tile === turn) {
                     break;
-                } else if (tile == 0 || tile >= 3) {
+                } else if (tile === 0 || tile >= 3) {
                     gain = 0;
                     break;
                 }
