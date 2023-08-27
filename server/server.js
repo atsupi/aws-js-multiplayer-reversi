@@ -26,7 +26,7 @@ const io = new Server(server, {
 
 app.set('view engine', 'hbs');
 app.get("/script.js", (req, res) => {
-    res.type('text/javascript');
+    res.set('Content-Type', 'application/javascript');
     const params = {
         server_url: SERVER_URL
     }
@@ -34,7 +34,6 @@ app.get("/script.js", (req, res) => {
 });
 
 app.use(express.static(path.join(__dirname, "../client")));
-
 
 let clientRooms = {};
 let state = {};
