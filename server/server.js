@@ -6,8 +6,6 @@ import { gamePutMassCompleted, gameSkipCurrentPlayer, startGame } from "./game.j
 import { gamePutMass } from "./game.js";
 import { Server } from "socket.io";
 
-console.log(process.env.SERVER_URL);
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
@@ -22,15 +20,6 @@ const io = new Server(server, {
     cors: {
         origin: ["http://127.0.0.1:3000", "WEB_ORIGIN"],
     },
-});
-
-app.set('view engine', 'hbs');
-app.get("/script.js", (req, res) => {
-    res.set('Content-Type', 'application/javascript');
-    const params = {
-        server_url: SERVER_URL
-    }
-    res.render("script", params);
 });
 
 app.use(express.static(path.join(__dirname, "../client")));
