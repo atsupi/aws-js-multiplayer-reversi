@@ -13,7 +13,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const server = http.createServer(app);
 
-const SERVER_URL = process.env.SERVER_URL || "http://localhost:3001";
+const SERVER_URL = process.env.SERVER_URL || "http://localhost:3000";
 const WEB_ORIGIN = process.env.WEB_ORIGIN || "http://localhost:3000";
 console.log("SERVER_URL", SERVER_URL);
 console.log("WEB_ORIGIN", WEB_ORIGIN);
@@ -22,6 +22,15 @@ const io = new Server(server, {
     cors: {
         origin: ["http://127.0.0.1:3000", "WEB_ORIGIN"],
     },
+});
+
+app.set('view engine', 'hbs');
+app.get("/script.js", (req, res) => {
+    res.set('Content-Type', 'application/javascript');
+    const params = {
+        server_url: SERVER_URL
+    }
+    res.render("script", params);
 });
 
 app.use(express.static(path.join(__dirname, "../client")));
